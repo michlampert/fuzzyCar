@@ -2,7 +2,7 @@
 
 ## Symulacja autonomicznego samochodu, korzystającego ze sterownika opartego na logice rozmytej
 
-<p align="center"><img src="demo.gif" width="90%" /></p>
+<p align="center"><img src="readme_files/demo.gif" width="90%" /></p>
 
 ## 1. Uruchamianie
 
