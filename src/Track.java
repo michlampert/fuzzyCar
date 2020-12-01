@@ -3,16 +3,6 @@ package src;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
-import java.awt.*;
-import java.io.File;
-import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-
 public class Track {
     public Car car;
     public ArrayList<Line> lines;
@@ -26,9 +16,9 @@ public class Track {
         this.visualization = new Visualization(trackName, this.car);
 
         this.controller = new Controller();
-        this.visualization.lines.addAll(this.lines);
-        // while(true){
-        for(int i = 0; i<10000; i++){
+        // this.visualization.lines.addAll(this.lines);
+
+        while(true){
             
             Distances distances = car.processLines(lines);
             double angle = this.controller.getAngle(distances);
@@ -43,24 +33,15 @@ public class Track {
             this.visualization.lines = ls;
 
             this.visualization.repaint();
+            // this.visualization.repaint((int) this.car.center.x - 50, (int) this.car.center.y - 50, 100, 100);
 
 
             
-            TimeUnit.MILLISECONDS.sleep(200);
+            TimeUnit.MILLISECONDS.sleep(50);
             
             this.car.rotate(-angle  * 3.14 / 180);
             this.car.move();
-            if(i%5 == 0){
-            try{
-                BufferedImage image = new BufferedImage(1123, 794, BufferedImage.TYPE_INT_RGB);
-                Graphics2D graphics2D = image.createGraphics();
-                this.visualization.paint(graphics2D);
-                ImageIO.write(image,"png", new File("screens/screen" + Integer.toString((i/5)) + ".png"));
-            }catch(Exception exception)
-            {
-                System.out.println(exception);
-            }}
-
+            
         }
 
     }
