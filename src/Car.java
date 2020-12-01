@@ -1,11 +1,11 @@
-
+package src;
 
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
 public class Car {
 
-    public static double velocity = 3;
+    public static double velocity = 2;
     public static double sensorAngle = 1.0/6.0;
     public static double veryFar = 1000;
     public static double carSize = 30;
@@ -26,12 +26,7 @@ public class Car {
     }
 
     public void move(){
-        try{
-            TimeUnit.MILLISECONDS.sleep((long) (50 * velocity));
-        }
-        catch(Exception e){
-            System.out.println(e);
-        }
+
         Vector2d v = this.front.sub(this.center).unit().mul(Car.velocity);
         this.front = this.front.sum(v);
         this.center = this.center.sum(v);
@@ -65,21 +60,16 @@ public class Car {
     public Distances processLines(ArrayList<Line> lines){
         Distances distances = new Distances(Car.veryFar, Car.veryFar, Car.veryFar);
         
-        
-        try{   
-            Line leftLine;
-            Line frontLine;
-            Line rightLine;
+        Line leftLine;
+        Line frontLine;
+        Line rightLine;
 
-            leftLine = new Line(this.center, this.leftFront(), true);
-            frontLine = new Line(this.center, this.front, true);
-            rightLine = new Line(this.center, this.rightFront(), true);
-            
-            for(Line line: lines){
-                distances.minUpdate(new Distances(this.calculateDistance(leftLine, line), this.calculateDistance(frontLine, line), this.calculateDistance(rightLine, line)));
-            }
-        } catch(Exception e){
-            System.out.println(e);
+        leftLine = new Line(this.center, this.leftFront(), true);
+        frontLine = new Line(this.center, this.front, true);
+        rightLine = new Line(this.center, this.rightFront(), true);
+        
+        for(Line line: lines){
+            distances.minUpdate(new Distances(this.calculateDistance(leftLine, line), this.calculateDistance(frontLine, line), this.calculateDistance(rightLine, line)));
         }
 
 

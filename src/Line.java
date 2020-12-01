@@ -1,17 +1,18 @@
+package src;
 
 public class Line {
     public Vector2d p1;
     public Vector2d p2;
     public boolean isHalfLine = false;
 
-    public Line(Vector2d p1, Vector2d p2) throws Exception {
-        if(p1.equals(p2)){ throw new Exception("wrong points");}
+    public Line(Vector2d p1, Vector2d p2){
+        if(p1.equals(p2)){ System.out.println("wrong points: " + p1.toString() + " and " + p2.toString());}
         this.p1 = p1;
         this.p2 = p2;
     }
 
-    public Line(Vector2d p1, Vector2d p2, boolean isHafLine) throws Exception {
-        if(p1.equals(p2)){ throw new Exception("wrong points");}
+    public Line(Vector2d p1, Vector2d p2, boolean isHafLine){
+        if(p1.equals(p2)){ System.out.println("wrong points: " + p1.toString() + " and " + p2.toString());}
         this.p1 = p1;
         this.p2 = p2;
         this.isHalfLine = isHafLine;
