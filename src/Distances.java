@@ -1,4 +1,3 @@
-package src;
 
 public class Distances {
     public double left;

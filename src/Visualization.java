@@ -1,4 +1,3 @@
-package src;
 
 import java.awt.*;
 import java.io.File;
@@ -7,7 +6,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import src.Vector2d;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
 public class Visualization extends JFrame {
 
@@ -20,6 +20,7 @@ public class Visualization extends JFrame {
         this.car = car;
         this.lines = lines;
         this.setBounds(0, 0, 1121, 822);
+        this.setVisible(true);
         this.setResizable(false);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         try {
@@ -27,7 +28,6 @@ public class Visualization extends JFrame {
         } catch (Exception e) {
             // TODO: handle exception
         }
-        this.setVisible(true);
     }
 
     public Visualization() {
@@ -59,6 +59,8 @@ public class Visualization extends JFrame {
         p.addPoint((int) rb.x, (int) rb.y + 30);
         p.addPoint((int) lb.x, (int) lb.y + 30);
         g.fillPolygon(p);
+
+
     }
 
     public static void main(String[] args) {

@@ -1,4 +1,3 @@
-package src;
 
 public class Line {
     public Vector2d p1;

@@ -1,10 +1,11 @@
-package src;
+
 
 import java.util.ArrayList;
+import java.util.concurrent.*;
 
 public class Car {
 
-    public static double velocity = 1;
+    public static double velocity = 3;
     public static double sensorAngle = 1.0/6.0;
     public static double veryFar = 1000;
     public static double carSize = 30;
@@ -25,6 +26,12 @@ public class Car {
     }
 
     public void move(){
+        try{
+            TimeUnit.MILLISECONDS.sleep((long) (50 * velocity));
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
         Vector2d v = this.front.sub(this.center).unit().mul(Car.velocity);
         this.front = this.front.sum(v);
         this.center = this.center.sum(v);
@@ -32,7 +39,7 @@ public class Car {
 
     public void rotate(double alpha){
         Vector2d v = this.front.sub(this.center);
-        this.front = this.center.sum(v.rotate(alpha));
+        this.front = this.center.sum(v.rotate( - alpha));
     }
 
     public Vector2d leftFront(){
