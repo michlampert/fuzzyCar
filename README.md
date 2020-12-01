@@ -16,15 +16,14 @@
 
 Sterownik oparty o jFuzzyLogic
 
-|   |   |
-|---|---|
 | ![left](readme_files/left.png)  | ![front](readme_files/front.png) |
+|---|---|
 | ![angle](readme_files/angle.png)  | ![result](readme_files/result.png) |
 
 ## 3. Tworzenie tras
 
 Trasy tworzone poprzez odczytanie współrzędnych odcinków z pliku .svg
 
-|   |   |
-|---|---|
+
 | ![track2](tracks/track2.png) | ![track1](tracks/track1.png)  |
+|---|---|
